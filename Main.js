@@ -1,4 +1,5 @@
 import {ResourceLoader} from "./js/base/ResourceLoader.js";
+import {BackGround} from "./js/runtime/BackGround.js";
 
 export class Main {
     constructor() {
@@ -9,6 +10,7 @@ export class Main {
     }
 
     onResourceFirstLoading(map) {
-        console.log(map)
+        let background = new BackGround(this.ctx, map.get('background'))
+        background.draw()
     }
 }
