@@ -1,12 +1,15 @@
+import {DataStore} from "./DataStore.js";
+
 export class Sprite {
 
-    constructor(ctx = null,
-                img = null,
-                srcX = 0, srcY = 0,
-                srcW = 0, srcH = 0,
-                x = 0, y = 0,
-                width = 0, height = 0) {
-        this.ctx = ctx;
+    constructor(
+        img = null,
+        srcX = 0, srcY = 0,
+        srcW = 0, srcH = 0,
+        x = 0, y = 0,
+        width = 0, height = 0) {
+        this.dataStore = DataStore.getInstance();
+        this.ctx = this.dataStore.ctx;
         this.img = img;
         this.srcX = srcX;
         this.srcY = srcY;
@@ -17,6 +20,10 @@ export class Sprite {
         this.width = width;
         this.height = height;
         console.log(this)
+    }
+
+    static getImage(key){
+        return DataStore.getInstance().res.get(key)
     }
 
     /**
