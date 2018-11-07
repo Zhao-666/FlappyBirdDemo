@@ -1,4 +1,5 @@
 import {Sprite} from "../base/Sprite.js";
+import {Director} from "../Director.js";
 
 export class Land extends Sprite {
 
@@ -11,7 +12,7 @@ export class Land extends Sprite {
             image.width, image.height
         );
         this.landX = 0;
-        this.landSpeed = 3;
+        this.landSpeed = Director.getInstance().moveSpeed;
     }
 
     draw() {

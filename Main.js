@@ -21,8 +21,11 @@ export class Main {
 
     init() {
         this.dataStore
+            .put('pencils',[])
             .put('background', BackGround)
             .put('land',Land)
+
+        Director.getInstance().createPencil()
         Director.getInstance().run()
     }
 }
