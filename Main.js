@@ -29,12 +29,20 @@ export class Main {
             .put('background', BackGround)
             .put('land', Land)
             .put('birds', Birds)
-
+        this.registerEvent();
         this.director.createPencil()
         this.director.run()
     }
 
     registerEvent() {
-
+        this.canvas.addEventListener('touchstart', e => {
+            e.preventDefault();
+            if (this.director.isGameOver) {
+                console.log('游戏开始');
+                this.init();
+            } else {
+                this.director.birdsEvent();
+            }
+        })
     }
 }
